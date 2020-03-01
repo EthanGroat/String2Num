@@ -1,7 +1,7 @@
 # Header file for String2Num.py
 
 
-import sys  # used for write, read, and and exit code
+import sys  # used for write, read, and exit code
 
 
 # global variable defs

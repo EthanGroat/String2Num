@@ -6,6 +6,7 @@ from Header import *
 
 
 def read_til(terminating_char):
+    """Input, handled the RIGHT way."""
     string = ""
     c = ""
     while c != terminating_char:
@@ -16,7 +17,7 @@ def read_til(terminating_char):
 
 def get_input(prompt="Gimme string!    "):
     """Similar to:
-    return input("Gimme string!    ")
+    input()
     only better!"""
     sys.stdout.write(prompt)
     string = read_til(TERMINATING_CHAR)
