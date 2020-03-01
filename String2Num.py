@@ -44,7 +44,7 @@ def debug_out(iterable, message=None):
     if message is not None:
         sys.stderr.write(message)
     for item in iterable:
-        sys.stderr.write("\n" + str(item))
+        sys.stderr.write(str(item) + '\n')
 
 
 def chars_to_bits(char_array):
@@ -80,7 +80,7 @@ def convert():
         byte = bits_to_byte(chars_to_bits(string[i*8:i*8+8]))
         raw_binary.append(byte)
     write_raw_output(raw_binary)
-    debug_out(raw_binary, "\nThe converter returned:")
+    debug_out(raw_binary, "\nThe converter returned:\n")
     return SUCCESS
 
 
