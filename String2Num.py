@@ -22,7 +22,7 @@ def get_input(prompt="Gimme string!    "):
     sys.stdout.write(prompt)
     string = read_til(TERMINATING_CHAR)
     # verify input is of the right form:
-    if len(string) % 8 != 0:
+    if len(string) % WORD_SIZE != 0:
         sys.stdout.write("Length must be divisible by 8\n")
         # retry:
         return get_input()
@@ -60,7 +60,7 @@ def chars_to_bits(char_array):
 def bits_to_byte(bit_array):
     """Takes a chunk of numbers representing bits and puts them
     into a single number composed of those bits. If given 8
-    numbers, it will return a byte"""
+    numbers, it will return a byte."""
     integer = 0
     # fake bit shifting:
     # for place in range(len(bit_array)):
@@ -74,10 +74,10 @@ def bits_to_byte(bit_array):
 
 def convert():
     """The driver function of this program."""
-    string = get_input()
+    string = get_input(prompt=PROMPT)
     raw_binary = []
-    for i in range(int(len(string)/8)):
-        byte = bits_to_byte(chars_to_bits(string[i*8:i*8+8]))
+    for i in range(int(len(string)/WORD_SIZE)):
+        byte = bits_to_byte(chars_to_bits(string[i*WORD_SIZE:(i+1)*WORD_SIZE]))
         raw_binary.append(byte)
     write_raw_output(raw_binary)
     debug_out(raw_binary, "\nThe converter returned:\n")
